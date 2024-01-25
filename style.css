@@ -1,8 +1,8 @@
 body {
     font: 20px "Gill Sans", Verdana, sans-serif;
     line-height: 1.8;
-    color: #000000;
-    background-color: #FFF;
+    color: #EEE7E8;
+    background-color: #130F1D;
     padding-top: 0px !important;
   }
 
@@ -23,13 +23,9 @@ a {
 }
 
 nav {
-  background-color: #fff; /* Change this to #fff for white background */
-  color: #000000;
+  background-color: #130F1D;
+  color: #EEE7E8;
   padding: 50px 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  top: 0;
 }
 
 .navbar-nav {
@@ -41,7 +37,7 @@ nav {
 .nav-title{
   margin-left: 15px;
   margin-right: 15px;
-  color: #fff;
+  color: #EEE7E8;
 }
 
 .nav-link {
