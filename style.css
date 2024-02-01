@@ -1,10 +1,19 @@
 body {
-    font: 20px "Gill Sans", Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
     line-height: 1.8;
-    color: #EEE7E8;
-    background-color: #130F1D;
+    color: black;
+    background-color: white;
     padding-top: 0px !important;
-  }
+}
+
+/* Update the font-family property for other elements as needed */
+.nav-title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ... other styles ... */
+
 
 .textcontainer {
   padding: 2% 10%;;
@@ -14,7 +23,7 @@ p {font-size: 16px;}
 .margin {margin-bottom: 30px;}
 
 a {
-  color: #E3165B;
+  color: #FF00FF;
 }
 
 .container-fluid {
@@ -23,9 +32,9 @@ a {
 }
 
 nav {
-  background-color: #130F1D;
-  color: #EEE7E8;
-  padding: 50px 0px;
+    background-color: white; /* Change banner color to white */
+    color: black; /* Change text color in the banner to black */
+    padding: 50px 0px;
 }
 
 .navbar-nav {
@@ -37,7 +46,7 @@ nav {
 .nav-title{
   margin-left: 15px;
   margin-right: 15px;
-  color: #EEE7E8;
+  color: black;
 }
 
 .nav-link {
