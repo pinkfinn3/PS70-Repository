@@ -50,36 +50,36 @@ nav {
 }
 
 .nav-link {
-  border: 3px outset #0E078D;
-  border-radius: 40px;
+  border: 3px outset #FC6C85;
+  border-radius: 10px;
   padding: 10px 30px;
-  background-color: #0E078D;
+  background-color: #FC6C85;
   color: #EEE7E8;
   transition: 0.3s;
 }
 
 .nav-link:hover {
-  border: 3px inset #E3165B;
-  border-radius: 40px;
+  border: 3px inset #FC6C85;
+  border-radius: 10px;
   padding: 10px 30px;
-  background-color: #0E078D;
+  background-color: #FC6C85;
   transition: 0.3s;
 }
 
 #btn {
-  border: 3px outset #0E078D;
-  border-radius: 40px;
+  border: 3px outset #FC6C85;
+  border-radius: 10px;
   padding: 10px 30px;
-  background-color: #0E078D;
+  background-color: #FC6C85;
   color: #EEE7E8;
   transition: 0.3s;
 }
 
 #btn:hover {
-  border: 3px inset #E3165B;
-  border-radius: 40px;
+  border: 3px inset #FC6C85;
+  border-radius: 10px;
   padding: 10px 30px;
-  background-color: #0E078D;
+  background-color: #FC6C85;
   transition: 0.3s;
 }
 
