@@ -23,7 +23,7 @@ p {font-size: 16px;}
 .margin {margin-bottom: 30px;}
 
 a {
-  color: #FF00FF;
+  color: #FD4659;
 }
 
 .container-fluid {
@@ -50,8 +50,8 @@ nav {
 }
 
 .nav-link {
-  border: 3px outset #FC6C85;
-  border-radius: 10px;
+  border: 3px outset #black;
+  border-radius: 3px;
   padding: 10px 30px;
   background-color: #FC6C85;
   color: #EEE7E8;
@@ -59,16 +59,16 @@ nav {
 }
 
 .nav-link:hover {
-  border: 3px inset #FC6C85;
-  border-radius: 10px;
+  border: 3px inset #black;
+  border-radius: 3px;
   padding: 10px 30px;
   background-color: #FC6C85;
   transition: 0.3s;
 }
 
 #btn {
-  border: 3px outset #FC6C85;
-  border-radius: 10px;
+  border: 3px outset #black;
+  border-radius: 3px;
   padding: 10px 30px;
   background-color: #FC6C85;
   color: #EEE7E8;
