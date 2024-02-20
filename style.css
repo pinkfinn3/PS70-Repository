@@ -27,6 +27,7 @@ a {
 }
 
 .container-fluid {
+
   padding: 0px;
   /*padding-bottom: 70px;*/
 }
@@ -84,7 +85,8 @@ nav {
 }
 
 .row {
-  margin: auto auto;
+    display: flex;
+    justify-content: center;
 }
 
 .flexrow {
