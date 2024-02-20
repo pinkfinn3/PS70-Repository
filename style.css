@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Courier New', monospace;
     font-size: 20px;
     line-height: 1.8;
     color: black;
@@ -9,7 +9,7 @@ body {
 
 /* Update the font-family property for other elements as needed */
 .nav-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Courier New', monospace;
 }
 
 /* ... other styles ... */
