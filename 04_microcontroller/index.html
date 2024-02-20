@@ -6,7 +6,8 @@
 <link href="../style.css" rel="stylesheet">
 
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #130F1D; color: #EEE7E8;">
+
+<nav class="navbar navbar-expand-sm navbar-dark">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
       <h2 class="nav-title">PS70 // Intro to Digital Fabrication // F23</h2>
@@ -18,10 +19,20 @@
   </div>
 </nav>
 
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./Scanner.gif" width = 1000 alt="radical">
+</div>
+
+<p class="caption"></p>
+
+
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
 <p class="margin">   </p>
+
 
 <h3>Week 4: Microcontroller Programming</h3>
 
@@ -37,22 +48,19 @@
 I will be working with blinking, remote controlled LEDs for my final project so I decided it would be a good use of time to program a simple LED circut with an artistic flare. For this week's project, I built an "LED wave" using the Millis() function. My final project is going to need its LED pattern to operate independently of the rest of the code, so I needed to understand how this function works to avoid using the delay command in the future. 
 
 <p class="margin">   </p>
-<div class="flexrow">
-  <img src="./Tinkercad.jpeg" alt="Circut Design">
-</div>
-<p class="caption">The re-designed cardboard stand, including notches at the bottom for a shelf to hold the motor.</p>
+
 
 I modeled the circuit using TinkerCad's Arduino module. This took about 1.5 hours testing different code files, playing with timings, and trying different resistors and wiring diagrams. This allowed me to similtaneously debug the circuitboard and the code seamlessly.
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./panthergif.gif" alt="a cardboard panther that looks like it's running">
+  <img src="./tinkercad.jpeg" width = 900 alt="a cardboard panther that looks like it's running">
 </div>
-<p class="caption">It lives!</p>
+<p class="caption">It's like Canva for EE!</p>
 
-I decided to use as many pins and lights as possible, which I hoped wouldn't be too much for the board to handle. This is the code I loaded onto the board to activate my board.
+I decided to use as many pins and lights as possible, which I hoped wouldn't be too much for the board to handle. This is the finalized code that created this effect:
 
-<pre><code style="background-color: #2d2b33;">
+<pre><code style="background-color: #white;">
 const int numLEDs = 10;
 const int ledPins[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 const int onDuration = 500;  // Time in milliseconds to keep the LEDs on
@@ -94,6 +102,8 @@ void loop() {
 
 I messed with the timings until the wave was visually appealing.
 
+
+
 <p class="margin">   </p>
 <div class="flexrow">
   <video controls>
@@ -101,6 +111,12 @@ I messed with the timings until the wave was visually appealing.
   </video>
   </div>
 <p class="caption">Potentiometer Speed Control.</p>
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./galactica.gif" width = 1000 alt="radical">
+</div>
+<p class="caption"></p>
 
 Lastly, I will most likely be using two ESP32s for my final project as I need radio control and potentially, WIFI. To get a head start, I installed the Arduino ESP32 add-on and familiarized myself with the interface.  
 
