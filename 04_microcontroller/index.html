@@ -28,6 +28,7 @@
 <p class="caption"></p>
 
 
+
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
@@ -60,73 +61,108 @@ I modeled the circuit using TinkerCad's Arduino module. This took about 1.5 hour
 
 I decided to use as many pins and lights as possible, which I hoped wouldn't be too much for the board to handle. This is the finalized code that created this effect:
 
-<pre><code style="background-color: #white;">
-const int numLEDs = 10;
-const int ledPins[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-const int onDuration = 500;  // Time in milliseconds to keep the LEDs on
-const int offDuration = 500; // Time in milliseconds to keep the LEDs off
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./scanner.mov" width = 500 alt="my LED array">
+</div>
+<p class="caption">Note: don't confuse 10,000 ohm with 220 ohm (see struggling LED 3)</p>
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanning</title>
+    <style>
+        /* Optional: Apply some basic styles to the code block */
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Scanner Code</h2>
+
+    <pre><code>
 unsigned long previousMillis = 0;
+
+// Delay to determine speed of scan:
+unsigned long interval = 100;
+
+// Array with Arduino pins containing LEDs in sequence
+byte LEDpins[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+// Variable to track which LED to turn on
 int currentLED = 0;
 
+boolean direction = UP;
+
 void setup() {
-  // Initialize the LED pins as OUTPUT
-  for (int i = 0; i < numLEDs; i++) {
-    pinMode(ledPins[i], OUTPUT);
-  }
+
+  // Set Pins with LEDs to OUTPUT
+  for (int x = 0; x < 10; x++)
+    pinMode(LEDpins[x], OUTPUT);
 }
 
 void loop() {
-  // Get the current time
+    digitalWrite(LEDpins[x], x == currentLED);
+
   unsigned long currentMillis = millis();
+  if ((unsigned long)(currentMillis - previousMillis) >= interval) {
 
-  // Check if it's time to turn off the current LED
-  if (currentMillis - previousMillis >= onDuration) {
-    digitalWrite(ledPins[currentLED], LOW); // Turn off the current LED
-    previousMillis = currentMillis; // Save the current time
-    currentLED++; // Move to the next LED
+    previousMillis = currentMillis;
 
-    // Check if all LEDs have been cycled through
-    if (currentLED >= numLEDs) {
-      currentLED = 0; // Restart from the first LED
+    if (direction == UP) {
+      currentLED++;
+      if (currentLED == 10) {
+        currentLED = 8;  // Set to the second-to-last LED
+        direction = DOWN;
+      }
+    } else {
+      currentLED--;
+      if (currentLED < 0) {
+        currentLED = 1;  // Set to the second LED
+        direction = UP;
+      }
     }
-  }
-
-  // Check if it's time to turn on the next LED
-  if (currentMillis - previousMillis >= offDuration) {
-    digitalWrite(ledPins[currentLED], HIGH); // Turn on the current LED
   }
 }
 
-</code></pre>
+        }
+    </code></pre>
 
-I messed with the timings until the wave was visually appealing.
+</body>
+</html>
 
-
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <video controls>
-    <source src="./panther-vid.mov" type="video/mp4">
-  </video>
-  </div>
-<p class="caption">Potentiometer Speed Control.</p>
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./galactica.gif" width = 1000 alt="radical">
+  <img src="./galactica.gif" width = 500 alt="radical">
 </div>
 <p class="caption"></p>
 
-Lastly, I will most likely be using two ESP32s for my final project as I need radio control and potentially, WIFI. To get a head start, I installed the Arduino ESP32 add-on and familiarized myself with the interface.  
-
 <p class="margin">   </p>
 <div class="flexrow">
-  <video controls>
-    <source src="panther_nice.mov" type="video/mp4">
-  </video>
-  </div>
-<p class="caption">The final result (so far).</p>
+  <img src="./glasses.gif" width = 500 alt="radical">
+</div>
+<p class="caption">I messed with the timings until the wave was visually appealing.</p>
+
+One of my classmates suggested I add a button to shoot a laserbeam down the line of LEDs, so I added that function too after drafting in TinkerCad. Here is the result:
+
+<p class="margin">   </p>
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./shoot.mov" width = 500 alt="my LED array">
+</div>
+<p class="caption"></p>
+
+
+
+Lastly, I will be using two ESP32s for my final project because I will be using radio controlled LEDs and potentially incorporate WIFI. To get a head start, I installed the Arduino ESP32 add-on and familiarized myself with the interface.  
+
 
 </div>
 </xmp>
