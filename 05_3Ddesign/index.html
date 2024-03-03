@@ -80,11 +80,16 @@ So began a long arduous journey in CAD. The mission? Recreate the glasses and ad
 
 <p class="margin">   </p>
 </p>
-<h2> Wrong. Over the next week, I had to learn the following lessons: </h2>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="container-fluid">
+    <h2>Wrong.</h2>
+    <p class="margin"></p>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="container-fluid">
+    <h3>Here's what I would tell my past self:</h3>
+    <p class="margin"></p>
 </p>
 Sunglasses have two main parts: band and frame. Both bend along 3 axes. this means simple extrusion and cutting won't do. Find another solution.
 </p>
-Your first plan, scanning the glasses and then "just cutting a hole" will be an utter failure, although it might make a good shark fin!
+Your first plan, scanning the glasses and then "just cutting a hole" will be an utter failure, although it makes a good shark fin!
 <div class="flexrow">
   <img src="./3DScan.jpeg" alt="tinkercad simulation with code and wiring diagram" width = 400>
 </div>
@@ -92,9 +97,10 @@ Your first plan, scanning the glasses and then "just cutting a hole" will be an 
 <p class="margin">   </p>
 </p>
 Printing tiny plastic hinges is unreliable. Harvest the hinges from an old pair of glasses and adapt the fitment in your model. 
-</p>
+
 It is crucial to import canvases on both x and y axes to model from an image. 
-</p>
+
+
 <div class="flexrow">
   <img src="./Band.jpeg" alt="tinkercad simulation with code and wiring diagram" width = 400>
 </div>
@@ -112,7 +118,7 @@ Next, after sketches and intense visualization in your head, draw lines from whi
 <p class="caption"></p>
 <p class="margin">   </p>
 </p>
-You won't be able to recreate the geometry exactly. I'm still not exactly sure how some of the angles work on the real glasses. 
+You won't be able to recreate the geometry perfectly. I'm still not  sure how some of the angles work on the real glasses. 
 </p>
 </p>
 <div class="flexrow">
@@ -121,7 +127,7 @@ You won't be able to recreate the geometry exactly. I'm still not exactly sure h
 <p class="caption"></p>
 <p class="margin">   </p>
 </p>
-The craftsmanship is incredible. Some of the traingles are not flat planes, but bent surfaces disguized as planes to make the bands look like a series of flat triangles.
+The craftsmanship is incredible. Some of the traingles are not flat planes as they seem, but bent surfaces disguized as planes to make the bands look like a series of flat triangles.
 </p>
 Your first attempt is the wrong size. 
 </p>
@@ -135,13 +141,8 @@ Your first attempt is the wrong size.
 So far, you've been making offset planes by drawing perpendicular lines, drawing a rectangle, and extruding that rectangle. This is much less efficient than the offset plane function. Stop doing that (I will continue to do this anyway later on).
 </p>
 Your second attempt is a little bit better, but you forgot to bend the frames. Thankfully, a heat gun will probably be fine.
-<div class="flexrow">
-  <img src="./Band2.jpeg" alt="" width = 400>
-</div>
-<p class="caption"></p>
+
 <p class="margin">   </p>
-</p>
-</p>
 When you go back to edit your first attempt, you will have created so many sketches and bodies that you'll have to start from scratch  to make a small edit.
 </p>
 Even after hours of modeling, you still won't be completely sure how you're going to fit lenses in these glasses. 
@@ -151,7 +152,7 @@ Even after hours of modeling, you still won't be completely sure how you're goin
   <img src="./Draft1.jpg" alt="" width = 400>
 </div>
 <p class="caption"></p>
-<p class="margin">   </p>
+
 </p>
 You create a last-minute lip on the inside of the frames in hopes that this will allow the lenses to sit flush. Still unclear whether this strategy will pay off. 
 </p>
@@ -159,6 +160,10 @@ You will test your scrap lenses to see whether they can be shaped with a heat gu
 </p>
 You will learn to create lofts and intersect a front-face sketch with 5 successive sketches on offset layers on the y axis to account for the 3-axis geometry of the frame. 
 </p>
+ <p class="margin"></p>
+ <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="container-fluid">
+    <h3>And it gets better.</h3>
+    <p class="margin"></p>
 After 6 hours modeling the frame, you'll remember that there are more cuts you forgot to make. Thankfully, they're only the second most complex. You'll spend another 45 minutes trying to understand from which direction you need to extrude your triangles to cut the frame, and you'll remember that you already mirrored the body, so you have to do everything twice, mirroring again.
 </p>
 <div class="flexrow">
@@ -174,6 +179,10 @@ Insecurity will build as you look to a nearby table and realize in the time it t
 </p>
 Ever since taking apart your favorite glasses, they haven't quite fit right, and you worry you ruined them for this project.
 </p>
+ <p class="margin"></p>
+ <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="container-fluid">
+    <h3>But there's good news too!</h3>
+    <p class="margin"></p>
 You become less insecure when your friend admits his design failed and he had to copy one online.
 </p>
 Despite committing to get to bed at 11:30pm, you spend another hour trying to create components so you can combine your frame and bands in a single STL. Meanwhile, it's started to pour rain and the Dhall closed
