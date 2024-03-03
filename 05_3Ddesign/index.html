@@ -6,7 +6,8 @@
 <link href="../style.css" rel="stylesheet">
 
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #130F1D; color: #EEE7E8;">
+
+<nav class="navbar navbar-expand-sm navbar-dark">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
       <h2 class="nav-title">PS70 // Intro to Digital Fabrication // F23</h2>
@@ -17,43 +18,152 @@
     </div>
   </div>
 </nav>
-<!DOCTYPE html>
+
+
+
+<body>
+<xmp style="display:none;">
+<div class="textcontainer">
+<p class="margin">   </p>
+
+<div style="align-items: center; justify-content: center;" class="container-fluid">
+    <h3>Week 5: 3D Design</h3>
+
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <a id="btn" href="wk4.zip" download>Download my code and CAD files from this week!
+  </a>
+</div>
+<p class="margin">   </p>
+
+<h4>Assignment: Make an Arduino Do Something</h4>
+
+I will be working with blinking, remote controlled LEDs for my final project so I decided it would be a good use of time to program a simple LED circut with an artistic flare. For this week's project, I built an "LED wave" using the Millis() function. My final project is going to need its LED pattern to operate independently of the rest of the code, so I needed to understand how this function works to avoid using the delay command in the future. 
+
+<p class="margin">   </p>
+
+
+I modeled the circuit using TinkerCad's Arduino module. This took about 1.5 hours testing different code files, playing with timings, and trying different resistors and wiring diagrams. This allowed me to similtaneously debug the circuitboard and the code seamlessly.
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./Tinkercad.jpeg" alt="tinkercad simulation with code and wiring diagram" width = 600>
+</div>
+<p class="caption">Tinkercad is like Canva for EE</p>
+<p class="margin">   </p>
+
+I decided to use as many pins and lights as possible and hoped this wouldn't overload the board. Below is the finalized code used to create this effect:
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./scan.gif" width = 500 alt="battlestar galactica character">
+</div>
+<p class="caption"></p>
+<p class="caption">Note: don't confuse 10,000 ohm with 220 ohm (see struggling LEDs 2 & 3)</p>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Example</title>
+    <title>Scanning</title>
     <style>
         /* Optional: Apply some basic styles to the code block */
         pre {
             background-color: #f4f4f4;
-            width = 700
             padding: 10px;
-            border: 100px solid #ddd;
+            border: 1px solid #ddd;
             white-space: pre-wrap;
-        }
-
-        /* Change the color of the text inside the code block */
-        code {
-            color: #333; /* Set your desired text color */
         }
     </style>
 </head>
 <body>
 
-    <h2>My Code Example</h2>
+    <h2>Scanner Code</h2>
 
     <pre><code>
-        // Your code goes here
-        void setup() {
-            // Setup code
-        }
+unsigned long previousMillis = 0;
 
-        void loop() {
-            // Loop code
+// Delay to determine speed of scan:
+unsigned long interval = 100;
+
+// Array with Arduino pins containing LEDs in sequence
+byte LEDpins[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+// Variable to track which LED to turn on
+int currentLED = 0;
+
+boolean direction = UP;
+
+void setup() {
+
+  // Set Pins with LEDs to OUTPUT
+  for (int x = 0; x < 10; x++)
+    pinMode(LEDpins[x], OUTPUT);
+}
+
+void loop() {
+    digitalWrite(LEDpins[x], x == currentLED);
+
+  unsigned long currentMillis = millis();
+  if ((unsigned long)(currentMillis - previousMillis) >= interval) {
+
+    previousMillis = currentMillis;
+
+    if (direction == UP) {
+      currentLED++;
+      if (currentLED == 10) {
+        currentLED = 8;  // Set to the second-to-last LED
+        direction = DOWN;
+      }
+    } else {
+      currentLED--;
+      if (currentLED < 0) {
+        currentLED = 1;  // Set to the second LED
+        direction = UP;
+      }
+    }
+  }
+}
+
         }
     </code></pre>
 
 </body>
+</html>
+
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./galactica.gif" width = 500 alt="battlestar galactica character">
+</div>
+<p class="caption"></p>
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./glasses.gif" width = 500 alt="glasses scanner">
+</div>
+<p class="caption">I messed with the timings until the wave was visually appealing.</p>
+
+One of my classmates suggested I add a button to shoot a laserbeam down the line of LEDs, so I added this after drafting in TinkerCad. Here is the result:
+
+<p class="margin">   </p>
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./shoot.mov" width = 500 alt="my LED array">
+</div>
+<p class="caption"></p>
+
+<p class="margin">   </p>
+
+Lastly, I will be using two ESP32s for my final project because I will be using radio controlled LEDs and potentially incorporate WIFI. To get a head start, I installed the Arduino ESP32 add-on and familiarized myself with the interface.  
+
+
+</div>
+</xmp>
+</body>
+
+<script src="../strapdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
 </html>

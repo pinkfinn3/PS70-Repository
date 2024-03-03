@@ -1,16 +1,18 @@
 body {
-    font-family: 'Courier New', monospace;
+    font-family: Inter,-apple-system,BlinkMacSystemFont
     font-size: 20px;
+    font-weight: 300;
     line-height: 1.8;
-    color: black;
+    color: #0a0a0a;
     background-color: white;
     padding-top: 0px !important;
 }
 
 /* Update the font-family property for other elements as needed */
 .nav-title {
-    font-family: 'Courier New', monospace;
-}
+    font-family: Inter,-apple-system,BlinkMacSystemFont
+    font-weight: 200;
+} 
 
 /* ... other styles ... */
 
@@ -63,7 +65,7 @@ nav {
   border: 3px inset #black;
   border-radius: 3px;
   padding: 10px 30px;
-  background-color: #FC6C85;
+  background-color: #808080;
   transition: 0.3s;
 }
 
