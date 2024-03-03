@@ -19,6 +19,8 @@ body {
 
 .textcontainer {
   padding: 2% 10%;;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 p {font-size: 16px;}
@@ -26,6 +28,12 @@ p {font-size: 16px;}
 
 a {
   color: #FD4659;
+}
+
+h1, h2, p {
+    font-family: 'Garamond', serif;
+    font-weight: 500;
+    /* Additional styling properties */
 }
 
 .container-fluid {
@@ -43,11 +51,14 @@ nav {
 .navbar-nav {
   display: flex;
   justify-content: flex-start;
+
   gap: 30px;
 }
 
 .nav-title{
   margin-left: 15px;
+  font-family: Inter,-apple-system,BlinkMacSystemFont;
+  font-weight: 200;
   margin-right: 15px;
   color: black;
 }
@@ -56,6 +67,8 @@ nav {
   border: 3px outset #black;
   border-radius: 3px;
   padding: 10px 30px;
+  font-family: Inter,-apple-system,BlinkMacSystemFont;
+  font-weight: 200;
   background-color: #FC6C85;
   color: #EEE7E8;
   transition: 0.3s;

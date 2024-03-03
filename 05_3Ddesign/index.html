@@ -10,7 +10,8 @@
 <nav class="navbar navbar-expand-sm navbar-dark">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
-      <h2 class="nav-title">PS70 // Intro to Digital Fabrication // F23</h2>
+      <h2 class="nav-title">Intro to Digital Fabrication
+      </h2>
     </div>
     <div class="navbar-nav">
       <h4><a class="nav-link" href="../index.html">Home</a></h4>
@@ -26,137 +27,161 @@
 <div class="textcontainer">
 <p class="margin">   </p>
 
-<div style="align-items: center; justify-content: center;" class="container-fluid">
-    <h3>Week 5: 3D Design</h3>
 
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" class="container-fluid">
+    <h2>Week 5: 3D Design</h2>
+    <p class="margin"></p>
+    <div class="flexrow">
+        <img src="./Header.jpg" alt="tinkercad simulation with code and wiring diagram" width="1800">
+    </div>
+    <p class="caption"></p>
+    <p class="margin"></p>
+</div>
+
+<p class="caption"></p>
+<p class="margin">   </p>
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <a id="btn" href="wk4.zip" download>Download my code and CAD files from this week!
+  <a id="btn" href="CAD.zip" download>Download my CAD files from this week!
   </a>
 </div>
 <p class="margin">   </p>
 
-<h4>Assignment: Make an Arduino Do Something</h4>
-
-I will be working with blinking, remote controlled LEDs for my final project so I decided it would be a good use of time to program a simple LED circut with an artistic flare. For this week's project, I built an "LED wave" using the Millis() function. My final project is going to need its LED pattern to operate independently of the rest of the code, so I needed to understand how this function works to avoid using the delay command in the future. 
-
-<p class="margin">   </p>
-
-
-I modeled the circuit using TinkerCad's Arduino module. This took about 1.5 hours testing different code files, playing with timings, and trying different resistors and wiring diagrams. This allowed me to similtaneously debug the circuitboard and the code seamlessly.
-
-<p class="margin">   </p>
 <div class="flexrow">
-  <img src="./Tinkercad.jpeg" alt="tinkercad simulation with code and wiring diagram" width = 600>
-</div>
-<p class="caption">Tinkercad is like Canva for EE</p>
-<p class="margin">   </p>
-
-I decided to use as many pins and lights as possible and hoped this wouldn't overload the board. Below is the finalized code used to create this effect:
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./scan.gif" width = 500 alt="battlestar galactica character">
+  <img src="./Head2.jpg" alt="" width = 400>
 </div>
 <p class="caption"></p>
-<p class="caption">Note: don't confuse 10,000 ohm with 220 ohm (see struggling LEDs 2 & 3)</p>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scanning</title>
-    <style>
-        /* Optional: Apply some basic styles to the code block */
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
-            white-space: pre-wrap;
-        }
-    </style>
-</head>
-<body>
-
-    <h2>Scanner Code</h2>
-
-    <pre><code>
-unsigned long previousMillis = 0;
-
-// Delay to determine speed of scan:
-unsigned long interval = 100;
-
-// Array with Arduino pins containing LEDs in sequence
-byte LEDpins[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-// Variable to track which LED to turn on
-int currentLED = 0;
-
-boolean direction = UP;
-
-void setup() {
-
-  // Set Pins with LEDs to OUTPUT
-  for (int x = 0; x < 10; x++)
-    pinMode(LEDpins[x], OUTPUT);
-}
-
-void loop() {
-    digitalWrite(LEDpins[x], x == currentLED);
-
-  unsigned long currentMillis = millis();
-  if ((unsigned long)(currentMillis - previousMillis) >= interval) {
-
-    previousMillis = currentMillis;
-
-    if (direction == UP) {
-      currentLED++;
-      if (currentLED == 10) {
-        currentLED = 8;  // Set to the second-to-last LED
-        direction = DOWN;
-      }
-    } else {
-      currentLED--;
-      if (currentLED < 0) {
-        currentLED = 1;  // Set to the second LED
-        direction = UP;
-      }
-    }
-  }
-}
-
-        }
-    </code></pre>
-
-</body>
-</html>
-
-
 <p class="margin">   </p>
+</p>
+
+
+I found my favorite pair of sunglasses on the ground at Harvard-Yale and they make me powerful. The bands are heavy and geometric; they scream "excess". I wear them when I'm driving, but they kill my peripheral vision and I have to crank my head like an owl to make sure I don't plow into someone when I change lanes.
+
 <div class="flexrow">
-  <img src="./galactica.gif" width = 500 alt="battlestar galactica character">
+  <img src="./Head2.jpeg" alt="" width = 400>
 </div>
 <p class="caption"></p>
+<p class="margin">   </p>
+</p>
 
 <p class="margin">   </p>
+
+
+So began a long arduous journey in CAD. The mission? Recreate the glasses and add "windows" reminiscent of the McLaren Senna  to improve visibility. Simple, right?
+
 <div class="flexrow">
-  <img src="./glasses.gif" width = 500 alt="glasses scanner">
-</div>
-<p class="caption">I messed with the timings until the wave was visually appealing.</p>
-
-One of my classmates suggested I add a button to shoot a laserbeam down the line of LEDs, so I added this after drafting in TinkerCad. Here is the result:
-
-<p class="margin">   </p>
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./shoot.mov" width = 500 alt="my LED array">
+  <img src="./Door.jpg" alt="" width = 500>
 </div>
 <p class="caption"></p>
+<p class="margin">   </p>
+</p>
 
 <p class="margin">   </p>
-
-Lastly, I will be using two ESP32s for my final project because I will be using radio controlled LEDs and potentially incorporate WIFI. To get a head start, I installed the Arduino ESP32 add-on and familiarized myself with the interface.  
+</p>
+<h2> Wrong. Over the next week, I had to learn the following lessons: </h2>
+</p>
+Sunglasses have two main parts: band and frame. Both bend along 3 axes. this means simple extrusion and cutting won't do. Find another solution.
+</p>
+Your first plan, scanning the glasses and then "just cutting a hole" will be an utter failure, although it might make a good shark fin!
+<div class="flexrow">
+  <img src="./3DScan.jpeg" alt="tinkercad simulation with code and wiring diagram" width = 400>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+Printing tiny plastic hinges is unreliable. Harvest the hinges from an old pair of glasses and adapt the fitment in your model. 
+</p>
+It is crucial to import canvases on both x and y axes to model from an image. 
+</p>
+<div class="flexrow">
+  <img src="./Band.jpeg" alt="tinkercad simulation with code and wiring diagram" width = 400>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+Offset planes are your best friend. First, use these to create 6 sketches along the y axis to estimate the geometry of the frame from the top view.
+</p>
+Next, after sketches and intense visualization in your head, draw lines from which to create offest planes at the odd angles where your frames and bands are cut. 
+</p>
+</p>
+<div class="flexrow">
+  <img src="./Model.jpg" alt="tinkercad simulation with code and wiring diagram" width = 600>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+You won't be able to recreate the geometry exactly. I'm still not exactly sure how some of the angles work on the real glasses. 
+</p>
+</p>
+<div class="flexrow">
+  <img src="./Band1.5.jpg" alt="" width = 400>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+The craftsmanship is incredible. Some of the traingles are not flat planes, but bent surfaces disguized as planes to make the bands look like a series of flat triangles.
+</p>
+Your first attempt is the wrong size. 
+</p>
+</p>
+<div class="flexrow">
+  <img src="./Deconstruct.jpg" alt="" width = 700>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+So far, you've been making offset planes by drawing perpendicular lines, drawing a rectangle, and extruding that rectangle. This is much less efficient than the offset plane function. Stop doing that (I will continue to do this anyway later on).
+</p>
+Your second attempt is a little bit better, but you forgot to bend the frames. Thankfully, a heat gun will probably be fine.
+<div class="flexrow">
+  <img src="./Band2.jpeg" alt="" width = 400>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+</p>
+When you go back to edit your first attempt, you will have created so many sketches and bodies that you'll have to start from scratch  to make a small edit.
+</p>
+Even after hours of modeling, you still won't be completely sure how you're going to fit lenses in these glasses. 
+</p>
+</p>
+<div class="flexrow">
+  <img src="./Draft1.jpg" alt="" width = 400>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+You create a last-minute lip on the inside of the frames in hopes that this will allow the lenses to sit flush. Still unclear whether this strategy will pay off. 
+</p>
+You will test your scrap lenses to see whether they can be shaped with a heat gun. They can... kind of. 
+</p>
+You will learn to create lofts and intersect a front-face sketch with 5 successive sketches on offset layers on the y axis to account for the 3-axis geometry of the frame. 
+</p>
+After 6 hours modeling the frame, you'll remember that there are more cuts you forgot to make. Thankfully, they're only the second most complex. You'll spend another 45 minutes trying to understand from which direction you need to extrude your triangles to cut the frame, and you'll remember that you already mirrored the body, so you have to do everything twice, mirroring again.
+</p>
+<div class="flexrow">
+  <img src="./Band2.jpg" alt="tinkercad simulation with code and wiring diagram" width = 600>
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+</p>
+</p>
+Your first 3 attempts printing the almost-final sample will crash and you'll spend 2 days in the lab trying to 
+</p>
+Insecurity will build as you look to a nearby table and realize in the time it took you to inch your way through a YouTube tutorial on lofts in Fusion360, your friend who has never used CAD created a custom printed DSLR Sony A7 3-lens attachment harvested from instant cameras. 
+</p>
+Ever since taking apart your favorite glasses, they haven't quite fit right, and you worry you ruined them for this project.
+</p>
+You become less insecure when your friend admits his design failed and he had to copy one online.
+</p>
+Despite committing to get to bed at 11:30pm, you spend another hour trying to create components so you can combine your frame and bands in a single STL. Meanwhile, it's started to pour rain and the Dhall closed
+</p>
+Fast forward a day, you'll go into the lab again and crash 3 prints over 2.5 hours before your design finally prints correctly. 
+</p>
+Print supports screw up flat surfaces, so flip your designs in Prusa to ensure the fronts are facing upwards. 
+</p>
 
 
 </div>
