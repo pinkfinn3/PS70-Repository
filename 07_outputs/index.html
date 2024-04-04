@@ -37,7 +37,7 @@
 My MVP was developed across 2 states, using 3 weeks of research, dozens of Arudiono IDE crashes, and 1 fried ESP32. 
 
 <p class="margin">   </p>
-The work? Deeply frustrating. The product? Agressively mediocre.  
+The process? Deeply frustrating. The product? Pretty good.
 
 <p class="margin">   </p>
 <div class="flexrow">
@@ -45,6 +45,218 @@ The work? Deeply frustrating. The product? Agressively mediocre.
 </div>
 <p class="caption">Completed VO of "Spend the Night Light"
 </p>
+
+<h4>Sender Code</h4>
+  <div style = "background-color: #d3d3d3; height: 50vh; overflow: scroll;">
+  <pre><code>
+#include <esp_now.h>
+#include <WiFi.h>
+
+uint8_t broadcastAddress[] = {0x08, 0xD1, 0xF9, 0x38, 0x16, 0x74};
+
+// Structure example to send data
+// Must match the receiver structure
+typedef struct struct_message {
+  int delay;
+} struct_message;
+
+// Create a struct_message called myData
+struct_message myData;
+
+esp_now_peer_info_t peerInfo;
+
+const int buttonPin = 27; // Assuming the button is connected to GPIO 2
+bool buttonPressed = false;
+
+// callback when data is sent
+void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  Serial.print("\r\nLast Packet Send Status:\t");
+  Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+}
+
+void setup() {
+  // Init Serial Monitor
+  Serial.begin(115200);
+  
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+
+  // Once ESPNow is successfully Init, we will register for Send CB to
+  // get the status of Transmitted packet
+  esp_now_register_send_cb(OnDataSent);
+  
+  // Register peer
+  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+  peerInfo.channel = 0;  
+  peerInfo.encrypt = false;
+  
+  // Add peer        
+  if (esp_now_add_peer(&peerInfo) != ESP_OK){
+    Serial.println("Failed to add peer");
+    return;
+  }
+
+  // Set up the button pin
+  pinMode(buttonPin, INPUT_PULLUP);
+}
+
+void loop() {
+  // Check if the button is pressed
+  if (digitalRead(buttonPin) == LOW && !buttonPressed) {
+    // Set values to send
+   myData.delay = 2;
+    
+    // Send message via ESP-NOW
+    esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
+     
+    if (result == ESP_OK) {
+      Serial.println("Sent with success");
+    }
+    else {
+      Serial.println("Error sending the data");
+    }
+
+    // Set buttonPressed to true to prevent further messages until the button is released and pressed again
+    buttonPressed = true;
+  }
+  // Check if the button is released
+  else if (digitalRead(buttonPin) == HIGH && buttonPressed) {
+    // Reset buttonPressed to false so that a message can be sent again when the button is pressed
+    buttonPressed = false;
+  }
+
+  // Delay before checking the button state again
+}
+
+
+  </code></pre>
+  </div>
+
+
+<p class="margin">   </p>
+<div style = "width:100%">
+  <h4>Receiver Code</h4>
+  <div style = "background-color: #d3d3d3; height: 50vh; overflow: scroll;">
+
+  <pre><code>
+#include <esp_now.h>
+#include <WiFi.h>
+
+// Structure example to receive data
+// Must match the sender structure
+typedef struct struct_message {
+  int delay;
+} struct_message;
+
+// Create a struct_message called myData
+struct_message myData;
+
+const int ledPin = 27;
+unsigned long timeToTurnOff = 0;
+
+// callback function that will be executed when data is received
+void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+  memcpy(&myData, incomingData, sizeof(myData));
+  digitalWrite(ledPin, HIGH);
+  timeToTurnOff = millis() + myData.delay * 1000;
+}
+ 
+void setup() {
+
+  pinMode(ledPin, OUTPUT);
+  // Initialize Serial Monitor
+  Serial.begin(115200);
+  
+  // Set device as a Wi-Fi Station
+  WiFi.mode(WIFI_STA);
+
+  // Init ESP-NOW
+  if (esp_now_init() != ESP_OK) {
+    Serial.println("Error initializing ESP-NOW");
+    return;
+  }
+  
+  // Once ESPNow is successfully Init, we will register for recv CB to
+  // get recv packer info
+  esp_now_register_recv_cb(OnDataRecv);
+}
+ 
+void loop() {
+  if (millis() >= timeToTurnOff){
+    digitalWrite(ledPin, LOW);
+  }
+}
+  </code></pre>
+  </div>
+</div>
+</div>
+
+<h4>RandomNerdTutorials Basic Code: Send Message on Startup</h4>
+  <div style = "background-color: #d3d3d3; height: 50vh; overflow: scroll;">
+
+   <pre><code>
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+const char* ssid = "your_wifi_ssid";
+const char* password = "your_wifi_password";
+const char* apiKey = "your_callmebot_api_key";
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+
+  // Connect to Wi-Fi
+  Serial.println();
+  Serial.println("Connecting to WiFi");
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected");
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+    // Your message to be sent
+    String message = "Hello from ESP32!";
+
+    // Construct the API URL
+    String url = "https://api.callmebot.com/whatsapp.php?phone=YOUR_PHONE_NUMBER&text=" + message + "&apikey=" + apiKey;
+
+    Serial.print("Sending request to: ");
+    Serial.println(url);
+
+    // Send HTTP POST request
+    http.begin(url);
+    int httpResponseCode = http.GET();
+    
+    if (httpResponseCode > 0) {
+      Serial.print("HTTP Response code: ");
+      Serial.println(httpResponseCode);
+      String payload = http.getString();
+      Serial.println(payload); // Print response payload
+    } else {
+      Serial.print("Error code: ");
+      Serial.println(httpResponseCode);
+    }
+    http.end();
+  }
+
+  delay(60000); // Send the message every 1 minute
+}
+
+  </code></pre>
+  </div>
 
 <p class="margin">   </p>
 
@@ -57,18 +269,13 @@ V0 used two external power sources from USB chargers. These or AA batteries will
   </div>
   <p class="caption">Science Center range test: hallway outside the lab.</p>
 
-</div>
+
 
 The ESP Now was functional at 50 meters. Although I couldn't see the light from any further, it seemed to work beyond this distance. This is more than enough for the  application. 
 
+</div>
 
-<p class="margin">   </p>
-<div class="flexrow">
-  <video controls>
-    <source src="./mvp_demo.mov" type="video/mp4">
-  </video>
-  </div>
-<p class="caption">The working MVP!</p>
+<h4>MVP Stage Two: New Features</h4>
 
 </div>
 </xmp>

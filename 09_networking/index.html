@@ -39,10 +39,18 @@
 This week, I worked with Kabir to program an ESP32 to send messages to a mobile phone through a WhatsApp API.
 As two hopeless romantics, Kabir and I liked the idea of being able to let our loved ones know we're thinking of them at any moment. We don't like wasting time on our phones, though, so we looked for something faster. 
 </p>
+
+
 We vaguely remembered something in lecture called an "API" that we didn't totally understand, but knew that it made programming simpler. Bingo. We looked online and found something called "CallmeBot," and checked out their website, which turned out to be the exact amount of sketchy we were comfortable with. 
 </p>
 
-Here's what we learned: The API itself doesn't send the message directly from your microcontroller. Instead, the microcontroller sends an HTTP request to the CallMeBot API, providing the necessary information such as the message content, recipient phone number, and API key.
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="callmebot.jpeg" width = 700 alt="Title">
+</div>
+<p class="caption"></p>
+
+Here's what we learned: The microcontroller doesn't send any messages itself. Instead, the ESP32 sends an HTTP request to the CallMeBot API, providing the necessary information such as the message content, recipient phone number, and API key.
 </p>
 The CallMeBot API server receives this request, processes it, and then sends the message to the specified phone number using the messaging service (e.g., WhatsApp) associated with that number. The API server acts as an intermediary between your microcontroller and the messaging platform, handling the complexities of communication and ensuring that the message is delivered correctly.
 </p>
