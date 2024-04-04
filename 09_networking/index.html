@@ -72,8 +72,8 @@ We did a test run using CallmeBot's stock code and after a few crashes, we had s
   <h4>RandomNerdTutorials Basic Code: Send Message on Startup</h4>
   <div style = "background-color: #d3d3d3; height: 50vh; overflow: scroll;">
   <pre><code>
-#include <WiFi.h>
-#include <HTTPClient.h>
+#include WiFi.h
+#include HTTPClient.h
 
 const char* ssid = "your_wifi_ssid";
 const char* password = "your_wifi_password";
@@ -147,7 +147,7 @@ The loop function constantly reads the state. The pin will be low when the butto
 As I was writing this documentation, I realized I didn't understand what I was talking about, so I asked Bobby to explain pull up and pull down resistors to me. I feel a lot better about it now. 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="lecture.jpeg" width = 400 alt="Title">
+  <img src="lecture.jpeg" width = 500 alt="Title">
 </div>
 <p class="caption">Bobby explaining how my button works</p>
 
@@ -157,15 +157,15 @@ As I was writing this documentation, I realized I didn't understand what I was t
   <div style = "background-color: #d3d3d3; height: 50vh; overflow: scroll;">
   <pre><code>
 
-#include <WiFi.h>
-#include <HTTPClient.h>
-#include <UrlEncode.h>
+#include WiFi.h
+#include HTTPClient.h
+#include UrlEncode.h
 
-const char* ssid = "MAKERSPACE";
-const char* password = "12345678";
+const char* ssid = "---------";
+const char* password = "---------;
 const int buttonPin = 27;
-String phoneNumber = "+12066177115";
-String apiKey = "6215313";
+String phoneNumber = "-----------";
+String apiKey = "--------";
 
 bool buttonPressed = false;
 unsigned long lastButtonPressTime = 0;
