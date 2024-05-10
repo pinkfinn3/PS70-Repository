@@ -1,43 +1,162 @@
 body {
-    font-family: Inter,-apple-system,BlinkMacSystemFont
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #0a0a0a;
-    background-color: white;
-    padding-top: 0px !important;
+  font-family: Inter,-apple-system,BlinkMacSystemFont;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #0a0a0a;
+  margin: 0; /* Remove default browser margins */
+   /* Set the background color for the body element */
+  padding-top: 0px !important;
 }
 
 /* Update the font-family property for other elements as needed */
 .nav-title {
-    font-family: Inter,-apple-system,BlinkMacSystemFont
-    font-weight: 200;
-} 
+  font-family: Inter,-apple-system,BlinkMacSystemFont;
+  font-weight: 200;
+}
+
+#logo-container {
+  width: 250px;
+  margin: auto;
+  flex-direction: column;
+  margin-bottom: 15px;
+  background-color: #FF7CD0;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Add this line */
+}
+
+.logo-text {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  font-style: italic;
+  position: relative ; 
+  bottom: 2px; 
+}
+
+.link-text{
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+}
+
+.project-link-text{
+  display: flex;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+}
+
+#wrapper {
+  display: flex;
+  flex direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  /* Remove width and height properties */
+}
+
+header{
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+
+#Content-container{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 20px;
+  color: whitesmoke;
+  font-family: Courier New, Courier, Monaco;
+}
+
+#main-nav{
+  margin-bottom: 33px;
+}
+
+#main-nav ul li{
+  padding: 5px 0;
+}
+
+#social-media-nav{
+  padding-left: 5px 0;
+}
+
+#social-media-nav ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#social-media-nav ul li {
+  padding-left: 0px;
+  padding-right: 20px; /* Increased the right padding */
+  margin-right: 15px; /* Added some right margin */
+  margin-bottom: 8px;
+}
+
+nav{
+  padding-left: 30px;
+
+}
+
+nav ul li {
+  list-style-type: none; 
+}
+
+  td {
+            padding: 10px; /* Adjust the padding as needed */
+        }
+
 
 /* ... other styles ... */
 
-
 .textcontainer {
-  padding: 2% 10%;;
+  padding: 2% 10%;
   max-width: 900px;
   margin: 0 auto;
 }
 
-p {font-size: 16px;}
-.margin {margin-bottom: 30px;}
+p {
+  font-size: 16px;
+}
+
+.margin {
+  margin-bottom: 30px;
+}
 
 a {
-  color: #FD4659;
+  color: white;
 }
 
-h1, h2, h3, h4 p {
-    font-family: 'Garamond', serif;
-    font-weight: 500;
-    /* Additional styling properties */
+h1{
+  line-height: 0.5;
 }
+
+h2{
+  font-size: 13px;
+  line-height: 0.5;
+}
+
+h3, h4, p {
+  font-family: 'Garamond', serif;
+  font-weight: 500;
+  line-height: 1.5;
+  /* Additional styling properties */
+}
+
+
 
 .container-fluid {
-
   padding: 0px;
   /*padding-bottom: 70px;*/
 }
@@ -48,7 +167,7 @@ h1, h2, h3, h4 p {
   overflow: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: ##d3d3d3;
+  background-color: #d3d3d3;
 }
 
 code {
@@ -57,25 +176,15 @@ code {
   overflow-x: auto; /* Enable horizontal scrolling if necessary */
   padding: 10px; /* Add padding for better readability */
   font-family: monospace; /* Use a monospaced font for code */
-
-}
-
-nav {
-    background-color: white; /* Change banner color to white */
-    color: black; /* Change text color in the banner to black */
-    padding: 50px 0px;
 }
 
 .navbar-nav {
   display: flex;
   justify-content: flex-start;
-
   gap: 30px;
 }
 
-
-
-.nav-title{
+.nav-title {
   margin-left: 15px;
   font-family: Inter,-apple-system,BlinkMacSystemFont;
   font-weight: 200;
@@ -120,8 +229,8 @@ nav {
 }
 
 .row {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .flexrow {
@@ -149,4 +258,5 @@ code {
 
 #aboutme {
   padding: 20px;
+  line-height: 2;
 }
