@@ -25,6 +25,13 @@
 
 <h3>Final Project: Spend the Night Light</h3>
 
+Demo Video
+<!-- <div class="flexrow">
+  <video src="./FinalVideo.MOV" width="900" controls autoplay loop>
+    Your browser does not support the video tag.
+  </video>
+</div>
+-->
 
 
 <p class="margin"></p>
@@ -66,10 +73,27 @@ This phase has also included a lot of discussions with Bobby about long term goa
 
 <h3>Phase 2</h3>
 
-<h4>Exterior Design</h3>
+<h4>MVP</h3>
 </p>
 
-Text
+The first step was to create something that could talk wirelessly between the light and the button. I scoured the internet to find a way to do this with two micro controllers and I was 90% of the way to making it too complicated, then Bobby told me about ESP now, which let me use to ESP 32s to talk to each other. If you want to see more of my MVP, check out my <a href="./07_outputs/index.html" style="color: black;">MVP Page</a>
+ 
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./1-talking.jpeg" width = 500 alt="thermosistor experiment with LED">
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./1-success.jpeg" width = 300 alt="thermosistor experiment with LED">
+</div>
+<p class="caption"></p>
+<p class="margin">   </p>
+
+I was surprised when it finally worked. 
 
 <p class="margin">   </p>
 <div class="flexrow">
@@ -79,164 +103,148 @@ Text
 <p class="caption"></p>
 
 
-Text
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./1-talking.jpeg" width = 500 alt="thermosistor experiment with LED">
-</div>
-<p class="caption">1-talking.jpegtest</p>
-<p class="margin">   </p>
-
-
-Text
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./1-success.jpeg" width = 500 alt="thermosistor experiment with LED">
-</div>
-<p class="caption">1-success.jpeg</p>
-<p class="margin">   </p>
-
-
-Text
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <img src="./1-talking.jpeg<" width = 500 alt="thermosistor experiment with LED">
-</div>
-<p class="caption">1-talking.jpeg</p>
-<p class="margin">   </p>
-
-
-Text
+Next, I had to figure out how to get the ES32 send a text to my phone when I press a button. I thought this was easy, and it should have been. But it was not. I used the CallMeBot's API, and the way it works is sends an HTTP post request to connect to What'sApp. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./1-whatsapp.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">1-whatsapp.jpeg</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
-Text
-
+Next, I had to get the rotaryencoder working. This took a while as I had to tune the acceleration, debouncing, and how it dealt with the steps. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./1-rotaryworking.MOV" width = 500 alt="thermosistor experiment with LED">
 </div>
 <p class="margin">   </p>
-<p class="caption">1-rotaryworking.MOV</p>
+<p class="caption"></p>
+
+<div class="flexrow">
+  <video src="./1-mvp.MOV" width="500" controls autoplay loop>
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 
 <h3>Phase 3</h3>
 
-<h4>Assembly</h3>
+<h4>Exterior Design</h3>
 </p>
 
-Text
+While I may seem like a man who knows what to do all the time, sometimes I struggle with the vision. To help myself out, I did a brain dump to set about creating the final product. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./2-boarddesign.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
 <p class="margin">   </p>
-<p class="caption">I built  a temperature detector to approxmiate how thermometers detect fevers.</p>
+<p class="caption"></p>
 
-text 
+Once I had thought through all the parts, it became easier to craft a vision. 
 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./2-designboard Large.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">digram2</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
-Text
+
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./2-design.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">Schematic</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
-Text
+Then, it was time to do the math. Feeling like a real SEAS student, I put my 800-dollar iPad to use and sketched out the exact dimensions of the encasing. It was perfect. Every angle, tangent, tooth, and plane was accounted for in my designs. The plan was to laser cut the box, and make it look as much like a classic high end 70s stereo as possible. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./diagram.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">Schematic</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
-Text
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./diagram2.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">digram2</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
-It was 1am and I was 5 episodes deep into season 8 of Always Sunny in Philadelphia when I realized that I had to change everything. The only way forward was to make an orb. 
+Then it all came crashing down. 
+<p class="margin">   </p>
+It was 1am and I was 5 episodes deep into season 8 of Always Sunny in Philadelphia when I realized that I had to change everything. The only way forward was to make an orb. I fired up fusion and designed a simple ball-shaped interface.
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./2-orb1.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">digram2</p>
+<p class="caption"></p>
+<p class="margin">   </p>
+
+<p class="margin">   </p>
+<div class="flexrow">
+  <img src="./2-orbprint.jpeg" width = 500 alt="thermosistor experiment with LED">
+</div>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
+<p class="margin">   </p>
 
 <h3>Phase 4</h3>
 
-<h4>Assignment: Build a Capacitive Sensor</h3>
+<h4>Final Assembly</h3>
 </p>
 
-Text
+As I brought everything together, a few things didn't fit quite right, and I needed to add an extra few pieces to accomodate an extra button for a hard reset. I also spraypainted it black, with the help of my friend Isabel. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./3-assembly.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
 <p class="margin">   </p>
-<p class="caption">I built  a temperature detector to approxmiate how thermometers detect fevers.</p>
+<p class="caption"></p>
 
 
-Text
+Everyone in this class jokes that their project looks "like a bomb," but mine really did. Specifically, one of those silly bombs with a thick, 6 inch fuse that they use in pirate movies. As I write this, it doesn't seem like that much work. But if you're a sophomore or something reading this website while taking PS70, know that your assessment is wrong and you're naiive. My project is impressive and I belong here at Harvard. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./3-bomb Large.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">Schematic</p>
+<p class="caption"></p>
 <p class="margin">   </p>
-
-
-Text
 
 <p class="margin">   </p>
 <div class="flexrow">
-  <img src="./3-designboard Large.jpeg" width = 500 alt="thermosistor experiment with LED">
+  <img src="./bomb.jpeg" width = 200 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">test</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
-Text
+<p class="margin">   </p>
+
+
+I killed a number of ESP32s from short circuiting. This was probably because I didn't cover 80% of the live wires in my circuit. 
 
 <p class="margin">   </p>
 <div class="flexrow">
   <img src="./3-graveyard Large.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">Schematic</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
@@ -246,20 +254,18 @@ Text
 <div class="flexrow">
   <img src="./3-orb Large.jpeg" width = 500 alt="thermosistor experiment with LED">
 </div>
-<p class="caption">Schematic</p>
+<p class="caption"></p>
 <p class="margin">   </p>
 
 
-Text
+At the end of 36 hours being awake, it was finally done. 
 
 
-<p class="margin">   </p>
 <div class="flexrow">
-  <img src="./3-orbprint.jpeg" width = 500 alt="thermosistor experiment with LED">
+  <video src="./lastmovie.MOV" width="500" controls autoplay loop>
+    Your browser does not support the video tag.
+  </video>
 </div>
-<p class="margin">   </p>
-<p class="caption">I built  a temperature detector to approxmiate how thermometers detect fevers.</p>
-
 
 
 
